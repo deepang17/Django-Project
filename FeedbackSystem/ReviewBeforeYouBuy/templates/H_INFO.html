@@ -1,0 +1,66 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Device Details
+  </title>
+  <link rel="stylesheet" href="{% static '/Bootstrap/bootstrap.min.css' %}">
+
+</head>
+
+<body style="background-image: url({% static '/Wallpaper/background.jpg'%});">
+  {% include "Header.html"%}
+  <div>
+    {% if pinfo %}
+    <center>
+      <h1 style="color:aliceblue;font-size:400%">{{ pinfo.h_name }}</h1>
+      <table>
+        <tr>
+          <td style="width:50%;color:aliceblue;font-size:200%;padding-left:5%">
+            <div>
+              <table border="2">
+                <tr>
+                  <td width="75%" height="200%">
+                    Price :
+                  </td>
+                  <td width="75%" height="200%">
+                    {{ pinfo.h_price }}
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" width="100%" height="200%">{{ pinfo.h_content_link }}</td>
+                </tr>
+              </table>    
+            </div>
+          </td>
+          <td>
+            <center><img src="{{ pinfo.h_photo_link }}" height="500" width="500"></center>
+          </td>
+        </tr>
+        {% for hi in finfo %}
+        <tr>
+          <td>{{hi.h_feedback}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <form method="POST" action="../H_Save_FeedBack/">
+            {% csrf_token %}
+            <td><input type="text" name="review"  </td>
+            <td><input type="submit" /></td>
+          </form>
+        </tr>
+      </table>
+      </ul>
+      {% else %}
+      <p>Hardware not found!</p>
+      {% endif %}
+      {% include "Footer.html"%}
+      {% endblock %}
+    </center>
+  </div>
+</body>
+
+</html>

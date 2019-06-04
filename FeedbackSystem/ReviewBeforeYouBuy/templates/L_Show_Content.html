@@ -1,0 +1,63 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Content</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+    <link rel="stylesheet" href="{% static '/Bootstrap/bootstrap.min.css' %}">
+    <style>
+        {
+            .bg {
+                background-image: url("{% static '/Wallpaper/background.jpg'%}");
+                height: auto;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+    </style>
+
+</head>
+
+<body style="background-image: url({% static '/Wallpaper/background.jpg'%});">
+    <div class="bg">
+        {% include "Header.html"%}
+        <h1 style="color:aliceblue;">
+            <center>Laptop</center>
+        </h1>
+        <form action="../L_INFO/" method="POST">
+            {% csrf_token %}
+            {% if l_info %}
+            <table border="2" style="width:100%">
+                {% for lap in l_info %}
+                <tr>
+                        <td style="width:50%;"><center><img src="{{ lap.l_photo_link }}" alt="Laptop Photo" height="300" width="220"></center></td>
+                        <td><div>
+                            <table style="width:100%">
+                            <tr>
+                                <td>
+                                    <center><big><big><big><input type="submit" value='{{lap.l_name}}' name="b1" onclick="b1={{lap.l_id}}" /></big></big></big></center><br><br><br><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="color:aliceblue;"><center><big><big><big>Price - {{ lap.l_price }}</big></big></big></center></td>
+                            </tr>
+                        </table>
+                        </div>
+                        </td>
+                    <br><br>
+                <td>
+                {% endfor %}
+            </table>
+            {% else %}
+            <p>No Laptops available</p>
+            {% endif %}
+        </form>
+        {% include "Footer.html"%}
+    </div>
+</body>
+
+</html>
+
+

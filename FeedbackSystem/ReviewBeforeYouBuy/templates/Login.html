@@ -1,0 +1,69 @@
+{% load static %}
+<html>
+
+<head>
+    <title>
+        Login Page
+    </title>
+    <link rel="stylesheet" href="{% static '/Bootstrap/bootstrap.min.css' %}">
+    <style type="text/css">
+        #mydiv {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 30em;
+            height: 28em;
+            margin-top: -9em;
+            margin-left: -15em;
+            border: 1px solid #ccc;
+            background-color: #00b7ff;
+            border-radius: 5%
+        }
+    </style>
+</head>
+
+<body style="background-image: url({% static '/Wallpaper/background.jpg'%});">
+    <div id="mydiv">
+        <center>
+            <br>
+            <a href="../Welcome"><img src="{% static '/Logo/Logo.png'%}" hieght="100" width="100" style="float:left;padding-left: 5%" ></a>
+            <h1 style="text-align:center;padding-right:10%">Login</h1>
+            {% if msg %}
+            {{ msg }}
+            {% endif %}
+            <br>
+            <form method="POST" action="../Logging/">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>
+                            <br><br>User Name :
+                        </td>
+                        <td>
+                            <br><br><input type="text" name="id" placeholder=" User Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br>Password :
+                        </td>
+                        <td>
+                            <br><input type="password" name="pass" placeholder=" Password ">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <br><br><input type="submit" name="login" value="  Login  " style="padding-left: 10%">
+                        </td>
+                        <td align="center">
+                            <br><br><a href="../Forgot_password" style="color: black;padding-left:25%;"><u> Forgot Password..</u></a>
+                        </td>
+                    </tr>
+                </table>
+        </center>
+        </form>
+            <a href="../Registration" style="color:black;"><center><br><br><input type="submit" name="Signup" value=" Create New Account "></center></a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>FeedBack System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static '/Bootstrap/bootstrap.min.css' %}">
+  <style>
+    .jumbotron {
+      margin-bottom: 0;
+      background-color: #00b7ff;
+    }
+
+    .container {
+      position: relative;
+      width: 70%;
+    }
+
+    .middle {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .container:hover .image {
+      opacity: 0.3;
+    }
+
+    .container:hover .middle {
+      opacity: 1;
+    }
+
+    .text {
+      color: white;
+      font-size: 25px;
+      padding: 20px 50px;
+    }
+
+    .image {
+      opacity: 1;
+      display: block;
+      width: auto;
+      height: auto%;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+  </style>
+
+</head>
+
+<body style="background-image: url({% static '/Wallpaper/background.jpg'%});">
+
+  <div class="jumbotron">
+    <a href="../Welcome"><img src="{% static '/Logo/Logo.png'%}" alt="Logo" style="float:left; padding-left:15%;"></a>
+    <div class="container text-center" style="padding-top: 2%">
+      <h1>Review Before You Buy</h1>
+      <p>Reviews & Ratings</p>
+    </div>
+  </div>
+
+  {% include "Header.html"%}
+
+  <table>
+    <tr>
+      <td align="center">
+        <div class="container">
+          <a href="../Mobile" style="color: aliceblue">
+            <img src="{%static '/Welcome/mobile.png'%}" alt="Mobiles" class="image" style="width:100%">
+            <div class="middle">
+              <div class="text">Mobiles</div>
+            </div>
+          </a>
+        </div>
+      </td>
+      <td align="center">
+        <div class="container">
+          <a href="../Laptop" style="color: aliceblue">
+            <img src="{% static '/Welcome/laptop.png'%}" alt="Laptops" class="image" style="width:100%">
+            <div class="middle">
+              <div class="text">
+                Laptops
+              </div>
+            </div>
+          </a>
+        </div>
+      </td>
+      <td align="center">
+        <div class="container">
+          <a href="../Camera" style="color: aliceblue">
+            <img src="{% static '/Welcome/camera.png'%}" alt="Keyboards" class="image" style="width:100%">
+            <div class="middle">
+              <div class="text">Camera and Lenses</div>
+            </div>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <br><br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <div class="container">
+          <a href="../Smart_Watch" style="color: aliceblue">
+            <img src="{% static '/Welcome/watch1.png'%}" alt="Watches" class="image" style="width:100%">
+            <div class="middle">
+              <div class="text">Smart Watches</div>
+            </div>
+          </a>
+        </div>
+      </td>
+      <td align="center">
+        <div class="container">
+          <a href="../Computer_Hardware" style="color: aliceblue">
+            <img src="{% static '/Welcome/com.hardware.png'%}" alt="Computer Hardware" class="image" style="width:100%">
+            <div class="middle">
+              <div class="text">
+                Computer Hardware
+              </div>
+            </div>
+          </a>
+        </div>
+      </td>
+      <td align="center">
+        <div class="container"><a href="../Electronic_Accessories" style="color: aliceblue">
+            <img src="{% static '/Welcome/usb.png'%}" alt="EA" class="image" style="width:100%">
+            <div class="middle">
+              <div class="text">Electronic Accesories
+              </div>
+            </div>
+          </a>
+        </div>
+      </td>
+    </tr>
+  </table>
+  {% include "Footer.html"%}
+</body>
+
+</html>

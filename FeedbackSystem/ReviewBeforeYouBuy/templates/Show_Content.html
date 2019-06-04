@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Content</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+    <link rel="stylesheet" href="{% static '/Bootstrap/bootstrap.min.css' %}">
+    <style>
+        {
+            .bg {
+                background-image: url("{% static '/Wallpaper/background.jpg'%}");
+                height: auto;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+    </style>
+
+</head>
+
+<body>
+    <div class="bg">
+        <table width="100%">
+            <tr>
+                <td colspan="3">
+                    <h1>
+                        <center>
+                            <font color="white">MOBILES</font>
+                        </center>
+                    </h1>
+                </td>
+            </tr>
+            {% include "Header.html"%}
+        </table>
+        {% include "Footer.html"%}
+    </div>
+</body>
+
+</html>

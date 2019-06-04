@@ -1,0 +1,56 @@
+{% load static %}
+<html>
+
+<head>
+    <title>
+        OTP Verification
+    </title>
+    <link rel="stylesheet" href="{% static '/Bootstrap/bootstrap.min.css' %}">
+    <style type="text/css">
+        #mydiv {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            width: 30em;
+            height: 20em;
+            margin-top: -9em;
+            margin-left: -15em;
+            border: 1px solid #ccc;
+            background-color: #00b7ff;
+            border-radius: 5%
+        }
+    </style>
+</head>
+
+<body style="background-image: url({% static '/Wallpaper/background.jpg'%});">
+    <div id="mydiv">
+        <center>
+            <br><br>
+            <a href="../Welcome"><img src="{% static '/Logo/Logo.png'%}" hieght="100" width="100" style="float:left;padding-left: 5%" ></a>
+            <h1 style="text-align:center;padding-right:10%"> OTP Verification </h1>
+            <form method="POST" action="../Verification_OTP/">
+                {% csrf_token %}
+                {% if msg %}
+                {{ msg }}
+                {% endif %}
+                <table>
+                    <tr>
+                        <td>
+                            <br><br>OTP :
+                        </td>
+                        <td>
+                            <br><br><input type="text" name="otp" placeholder=" OTP ">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2">
+                            <br><br><input type="submit" name="Verify" value="  Verify  " >
+                        </td>
+                    </tr>
+                </table>
+        </center>
+        </form>
+    </div>
+</body>
+
+</html> 

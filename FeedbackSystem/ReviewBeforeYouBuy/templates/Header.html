@@ -1,0 +1,44 @@
+{% load static %}
+<html>
+<style>
+.navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+</style>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><img src="{% static '/Logo/Logo.png'%}" alt="Logo" height="50" width="50" style="margin-right:20;"></li>
+                <li class="active"><a href="../Welcome"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a href="../Contact"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li style="font-size:200%;color: aliceblue;">
+                    {% if request.session.uname %}
+                        {{ request.session.uname }}
+                    {% else %}
+                        {{ '' }}
+                    {% endif %}
+                </li>
+                <li style="font-size:200%">
+                    <span class="glyphicon glyphicon-user"> 
+                    {% if request.session.uname %}
+                    <a href="../Logout" style="color:aliceblue;">
+                        Logout        
+                    </a>    
+                    {% else %}
+                    <a href="../Login" style="color: aliceblue;">
+                        Login        
+                    </a>
+                    {% endif %}
+                </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

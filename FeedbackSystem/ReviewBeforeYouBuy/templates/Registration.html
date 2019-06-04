@@ -1,0 +1,99 @@
+{% load static %}
+<html>
+
+<head>
+    <title>
+        Registration
+    </title>
+    <link rel="stylesheet" href="{% static '/Bootstrap/bootstrap.min.css' %}">
+    <style type="text/css">
+        #mydiv {
+            position: absolute;
+            top: 35%;
+            left: 41%;
+            width: 50em;
+            height: 35em;
+            margin-top: -9em;
+            margin-left: -15em;
+            border: 1px solid #ccc;
+            background-color: #00b7ff;
+            border-radius: 5%
+        }
+    </style>
+</head>
+
+<body style="background-image: url({% static '/Wallpaper/background.jpg'%});">
+    <div id="mydiv">
+        <center>
+            <br>
+            <a href="../Welcome"><img src="{% static '/Logo/Logo.png'%}" hieght="100" width="100" style="float:left;padding-left: 5%;padding-top:2%;" ></a>
+            <h1 style="text-align:center;padding-right:10%;">Create Your Account Here</h1>
+            <form method="POST" action="../Register/">
+                    {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>
+                            <br><br>First Name :
+                        </td>
+                        <td align="LEFT">
+                            <br><br><input type="text" name="fname" placeholder=" First Name">
+                        </td>
+                        <td>
+                            <br><br>Last Name :
+                        </td>
+                        <td>
+                            <br><br><input type="text" name="lname" placeholder=" Last Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br>User Name :
+                        </td>
+                        <td>
+                            <br><input type="text" name="id" placeholder=" User Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br>New Password :
+                        </td>
+                        <td>
+                            <br><input type="password" name="pass" placeholder=" New Password">
+                        </td>
+                        <td>
+                            <br>Confirm Password :
+                        </td>
+                        <td>
+                            <br><input type="password" name="cpass" placeholder=" Confirm Password ">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br>Email Address:
+                        </td>
+                        <td>
+                            <br><input type="email" name="email" placeholder=" Email Address ">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br>Contact Number :
+                        </td>
+                        <td>
+                            <br><input type="text" name="cont-num" maxlength="10" placeholder=" Contact Number ">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="4">
+                            <br><br><input type="submit" name="submit" value="  Submit  ">
+                        </td>
+                    </tr>
+                </table>
+        </center>
+        {% if msg %}
+        {{ msg }}
+        {% endif %}
+    </div>
+</body>
+
+</html>

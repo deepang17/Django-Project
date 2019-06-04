@@ -1,0 +1,21 @@
+<html>
+<style>
+    footer {
+      background-color: #00b7ff;
+      padding: 25px;
+    }
+</style>
+<body>
+    <br><br>
+    <footer class="container-fluid text-center">
+        <p></p><span class="glyphicon glyphicon-copyright-mark"></span> Copyright Review System </p>
+        <form class="form-inline" method="POST" action="../Notified/"> 
+            {% csrf_token %}
+            Notification :
+            <input type="email" name="notify_email" class="form-control" size="50" placeholder="Email Address" required>
+            <button type="submit" class="btn btn-danger">Notify</button>
+        </form>
+    </footer>
+</body>
+
+</html>

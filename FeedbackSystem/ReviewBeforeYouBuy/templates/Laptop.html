@@ -1,0 +1,192 @@
+{% load static %}
+<html>
+
+<head>
+  <title>Laptop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+  <link rel="stylesheet" href="{% static '/Bootstrap/bootstrap.min.css' %}">
+  <style>
+    .mySlides {
+      display: none;
+    }
+
+    .container {
+      position: relative;
+      width: 70%;
+    }
+
+    .image {
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+
+    .middle {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .container:hover .image {
+      opacity: 0.3;
+    }
+
+    .container:hover .middle {
+      opacity: 1;
+    }
+
+    .text {
+      color: black;
+      font-size: 16px;
+      padding: 20px 50px;
+    }
+
+    .bg {
+      background-image: url("{% static '/Wallpaper/background.jpg'%}");
+      height: auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg">
+    <table width="100%">
+      <tr>
+        <td colspan="3">
+          <h1>
+            <center>
+              <font color="white">LAPTOPS</font>
+            </center>
+          </h1>
+        </td>
+      </tr>
+      {% include "Header.html"%}
+      <tr>
+        <td colspan="3">
+          <img class="mySlides" src="{%static '/Laptop/pos 1.jpg'%}" style="width:100%">
+          <img class="mySlides" src="{%static '/Laptop/pos 2.png'%}" style="width:100%">
+          <img class="mySlides" src="{%static '/Laptop/pos 3.jpg'%}" style="width:100%">
+          <img class="mySlides" src="{%static '/Laptop/pos 4.jpg'%}" style="width:100%">
+          <img class="mySlides" src="{%static '/Laptop/pos 5.jpg'%}" style="width:100%">
+
+          <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+              }
+              myIndex++;
+              if (myIndex > x.length) { myIndex = 1 }
+              x[myIndex - 1].style.display = "block";
+              setTimeout(carousel, 5000);
+            }
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <br><br>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <div class="container">
+            <a href="../L_Show_Content">
+              <img src="{%static '/Laptop/1.png'%}" alt="Latest" class="image" style="width:100%">
+              <div class="middle">
+                <div class="text" style="color: aliceblue">
+                  Latest Releases
+                </div>
+              </div>
+            </a>
+          </div>
+        </td>
+        <td align="center">
+          <div class="container">
+            <a href="../L_Show_Content">
+              <img src="{%static '/Laptop/2.png'%}" alt="Under15" class="image" style="width:100%">
+              <div class="middle">
+                <div class="text" style="color: aliceblue">
+                  Under 15000
+                </div>
+              </div>
+            </a>
+          </div>
+        </td>
+        <td align="center">
+          <div class="container">
+            <a href="../L_Show_Content">
+              <img src="{%static '/Laptop/3.jpg'%}" alt="Best Sellers" class="image" style="width:100%">
+              <div class="middle">
+                <div class="text" style="color: aliceblue">
+                  Best Sellers
+                </div>
+              </div>
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <br><br>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <div class="container">
+            <a href="../L_Show_Content">
+              <img src="{%static '/Laptop/4.jpg'%}" alt="Most Searched" class="image" style="width:100%">
+              <div class="middle">
+                <div class="text" style="color: aliceblue">
+                  Most Searched
+                </div>
+              </div>
+            </a>
+          </div>
+        </td>
+        <td align="center">
+          <div class="container">
+            <a href="../L_Show_Content">
+              <img src="{%static '/Laptop/5.png'%}" alt="Recommended" class="image" style="width:100%">
+              <div class="middle">
+                <div class="text" style="color: aliceblue">
+                  Recommended
+                </div>
+              </div>
+            </a>
+          </div>
+        </td>
+        <td align="center">
+          <div class="container">
+            <a href="../L_Show_Content">
+              <img src="{%static '/Laptop/6.jpg'%}" alt="Exclusive Phones" class="image" style="width:100%">
+              <div class="middle">
+                <div class="text" style="color: aliceblue">
+                  Exclusive
+                </div>
+              </div>
+            </a>
+          </div>
+        </td>
+    </table>
+    {% include "Footer.html"%}
+  </div>
+</body>
+
+</html>
